@@ -1,9 +1,10 @@
 from django.contrib import admin
-from .models import Category, Product, StockMovment
+from .models import Category, Product, StockMovement
+
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ("name", "crated_at")
+    list_display  = ("name", "created_at")
     search_fields = ("name",)
 
 
@@ -14,7 +15,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter   = ("category", "is_active", "gst_rate")
 
 
-@admin.register(StockMovment)
-class StockMovmentAdmin(admin.ModelAdmin):
-    list_display = ("product", "movement_type", "Inventory", "refrence_type", "created_at")
-    list_filter = ("movement_type", "refrence_type")
+@admin.register(StockMovement)
+class StockMovementAdmin(admin.ModelAdmin):
+    list_display  = ("product", "movement_type", "quantity", "reference_type", "created_at")
+    list_filter   = ("movement_type", "reference_type")
