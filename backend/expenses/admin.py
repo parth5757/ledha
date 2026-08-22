@@ -1,3 +1,13 @@
 from django.contrib import admin
+from .models import ExpenseCategory, Expense
 
-# Register your models here.
+@admin.register(ExpenseCategory)
+class ExpenseCategoryAdmin(admin.ModelAdmin):
+    list_display = ("name", )
+
+
+@admin.register(Expense)
+class ExpenseAdmin(admin.ModelAdmin):
+    list_display = ("title", "category", "amount", "method", "expense_date")
+    list_filter = ("category", "method")
+    search_fields = ("title", )
