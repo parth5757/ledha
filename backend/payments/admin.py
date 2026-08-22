@@ -1,11 +1,12 @@
 from django.contrib import admin
 from .models import Payment, Borrow, BankStatement
 
-@admin.site.register(Payment)
+
+@admin.register(Payment)
 class PaymentAdmin(admin.ModelAdmin):
-    list_display = ("payment_type", "amount", "method", "payment_date", "order", "purchase")
-    list_filter = ("payment_type", "method")
-    search_fields = ("refrence_number", "note")
+    list_display  = ("payment_type", "amount", "method", "payment_date", "order", "purchase")
+    list_filter   = ("payment_type", "method")
+    search_fields = ("reference_number", "note")
 
 
 @admin.register(Borrow)
